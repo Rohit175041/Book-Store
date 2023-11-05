@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import BackButton from '../components/BackButton';
 import Spinner from '../components/Spinner';
 import axios from 'axios';
@@ -16,7 +16,7 @@ const EditBook = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5555/books/${id}`)
+    axios.get(`https://bookstore-kgsr.onrender.com/books/${id}`)
     .then((response) => {
         setAuthor(response.data.author);
         setPublishYear(response.data.publishYear)
@@ -27,7 +27,7 @@ const EditBook = () => {
         alert('An error happened. Please Chack console');
         console.log(error);
       });
-  }, [])
+  }, [id])
   
   const handleEditBook = () => {
     const data = {
