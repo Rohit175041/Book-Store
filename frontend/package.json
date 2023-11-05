@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "private": true,
+  "proxy":"https://bookstore-kgsr.onrender.com",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
