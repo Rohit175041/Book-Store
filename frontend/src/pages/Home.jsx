@@ -16,6 +16,7 @@ const Home = () => {
     axios
       .get('https://bookstore-kgsr.onrender.com/books')
       .then((response) => {
+        console.log("hello");
         setBooks(response.data.data);
         setLoading(false);
       })
