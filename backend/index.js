@@ -3,6 +3,8 @@ import { PORT, mongoDBURL } from './config.js';
 import mongoose from 'mongoose';
 import booksRoute from './routes/booksRoute.js';
 import cors from 'cors';
+const dotenv = require('dotenv'); 
+const jwt = require('jsonwebtoken');
 
 const app = express();
 

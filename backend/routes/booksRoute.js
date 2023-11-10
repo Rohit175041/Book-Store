@@ -22,8 +22,7 @@ router.post('/', async (request, response) => {
     };
 
     const book = await Book.create(newBook);
-
-    return response.status(201).send(book);
+    return response.status(200).send(book);
   } catch (error) {
     console.log(error.message);
     response.status(500).send({ message: error.message });
@@ -34,7 +33,9 @@ router.post('/', async (request, response) => {
 router.get('/', async (request, response) => {
   try {
     const books = await Book.find({});
-
+    if (!books) {
+      return response.status(404).json({ message: 'Books not found' });
+    }
     return response.status(200).json({
       count: books.length,
       data: books,
@@ -51,7 +52,9 @@ router.get('/:id', async (request, response) => {
     const { id } = request.params;
 
     const book = await Book.findById(id);
-
+    if (!book) {
+      return response.status(404).json({ message: 'Book not found' });
+    }
     return response.status(200).json(book);
   } catch (error) {
     console.log(error.message);
