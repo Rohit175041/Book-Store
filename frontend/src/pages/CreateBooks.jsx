@@ -8,6 +8,7 @@ import { useSnackbar } from 'notistack';
 
 const CreateBooks = () => {
   const [title, setTitle] = useState('');
+  const [about, setAbout] = useState('');
   const [author, setAuthor] = useState('');
   const [publishYear, setPublishYear] = useState('');
   const [loading, setLoading] = useState(false);
@@ -19,6 +20,7 @@ const CreateBooks = () => {
       title,
       author,
       publishYear,
+      about
     };
     setLoading(true);
     axios
@@ -67,6 +69,15 @@ const CreateBooks = () => {
             value={publishYear}
             onChange={(e) => setPublishYear(e.target.value)}
             className='border-2 border-gray-500 px-4 py-2  w-full '
+          />
+        </div>
+        <div className='my-4'>
+          <label className='text-xl mr-4 text-gray-500'>Aboutt</label>
+          <input
+            type='text'
+            value={about}
+            onChange={(e) => setAbout(e.target.value)}
+            className='border-2 border-gray-500 px-4 py-2 w-full'
           />
         </div>
         <button className='p-2 bg-sky-300 m-8' onClick={handleSaveBook}>
