@@ -6,6 +6,7 @@ import cors from 'cors';
 // const dotenv = require('dotenv'); 
 // const jwt = require('jsonwebtoken');
 
+
 const app = express();
 
 // Middleware for parsing request body
